@@ -21,6 +21,9 @@ public class ExpenseCategory {
 	@Column(name = "description")
 	private String description;
 	
+	@Column(name = "user_id")
+	private Long userId;
+	
 	public ExpenseCategory() {
 		
 	}
@@ -29,6 +32,7 @@ public class ExpenseCategory {
 		this.id = expenseCategory.getId();
 		this.categoryName = expenseCategory.getCategoryName();
 		this.description = expenseCategory.getDescription();
+		this.userId = expenseCategory.getUserId();
 	}
 
 	public Long getId() {
@@ -55,9 +59,18 @@ public class ExpenseCategory {
 		this.description = description;
 	}
 
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
 	@Override
 	public String toString() {
-		return "ExpenseCategory [id=" + id + ", categoryName=" + categoryName + ", description=" + description + "]";
+		return "ExpenseCategory [id=" + id + ", categoryName=" + categoryName + ", description=" + description
+				+ ", userId=" + userId + "]";
 	}
 	
 }

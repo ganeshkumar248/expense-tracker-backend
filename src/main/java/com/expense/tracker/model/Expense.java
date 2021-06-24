@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+
 @Entity
 @Table(name="tbl_expense")
 public class Expense {
@@ -45,6 +46,9 @@ public class Expense {
 	@Column(name = "updated_at")
 	private Date updatedAt;
 	
+	@Column(name = "user_id")
+	private Long userId;
+	
 	public Expense() {
 		
 	}
@@ -56,6 +60,7 @@ public class Expense {
 		this.category = expense.getCategory();
 		this.amount = expense.getAmount();
 		this.Date = expense.getDate();
+		this.userId = expense.getUserId();
 	}
 
 	public Long getId() {
@@ -121,11 +126,19 @@ public class Expense {
 	public void setDate(Instant date) {
 		this.Date = date;
 	}
+	
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUser(Long userId) {
+		this.userId = userId;
+	}
 
 	@Override
 	public String toString() {
 		return "Expense [id=" + id + ", expenseName=" + expenseName + ", description=" + description + ", amount="
-				+ amount + ", category=" + category + ", createdAt=" + createdAt + ", actualDate=" + Date + ", updatedAt="
-				+ updatedAt + "]";
+				+ amount + ", category=" + category + ", createdAt=" + createdAt + ", Date=" + Date + ", updatedAt="
+				+ updatedAt + ", userId=" + userId + "]";
 	}
 }
